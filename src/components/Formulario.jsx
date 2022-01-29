@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function Formulario(props) {
   return (
-    <div>
+    <div className="bg-slate-700">
       <h2>formulario</h2>
     </div>
   )
