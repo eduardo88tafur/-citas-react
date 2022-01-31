@@ -1,7 +1,10 @@
 function Header(){
 
     return(
-        <h1>imprimiendo en pantalla</h1>
+        <h1 className="font-black text-5xl">
+            seguiminto pacientes  
+            <span> veterinaria</span>
+        </h1>  
         )
         
     

@@ -2,9 +2,9 @@ import ReactDOM from 'react-dom';
 function Tafur(){
     
     return(
-    <div>
-    <h1>este es un titulo mejor</h1>
-    </div>
+    
+    <h1 className="font-black">este es un titulo mejor</h1>
+    
     )
 }
 export default Tafur;
