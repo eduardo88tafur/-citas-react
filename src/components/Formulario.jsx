@@ -52,7 +52,8 @@ const Formulario=()=> {
         </div>
         <input
         type="submit"
-        className=' bg-orange-400 w-full p-3 uppercase font-bold hover: bg-indigo-700 cursor-pointer transition-all'
+        className=' bg-orange-400 w-full p-3 uppercase font-bold
+         hover: bg-indigo-700 cursor-pointer transition-all'
         value="enviar datos"
         />
         </div>
