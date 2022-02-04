@@ -1,13 +1,24 @@
-import React from 'react'
+import {useState,useEffect}from 'react'
 import PropTypes from 'prop-types'
 
 const Formulario=()=> {
+  const[nombre,setNombre]=useState(" ")
+  const[propietario,setPropietario]=useState(" ")
+  const[email,setEmail]=useState(" ")
+  const[fecha,setFecha]=useState(" ")
+  const[daño,setDaño]=useState(" ")
+
+  const handleSubmit=()=>{
+    console.log("enviando formulario");
+  }
   return (
     <div className="md:w-1/2 lg:w-2/5">
       <h2 className='font-black text-3xl text center'>reportes de daños</h2>
       <p className='text-lg mt-5'>añade celulares defectuosos {" "}</p>
       <span className='text-indigo-600 font-bold'>administarlos</span>
-      <form className='bg-yellow-400 shadow-md rounded-lg py-10 px-5'>
+      <form  
+      onSubmit={handleSubmit}
+      className='bg-yellow-400 shadow-md rounded-lg py-10 px-5'>
         <div  className='mb-5'>
           <label  htmlFor='celular' className='block text-white uppercase font-bold'>nombre del celular</label>
           <input
@@ -15,6 +26,8 @@ const Formulario=()=> {
           id='celular'
           placeholder="ingrese el nombre del equipo"
           className=' border-2 w-full p-2 mt placeholder-red-400 rounded-md'
+          value={nombre}
+          onChange={(e)=> console.log(e.target.value)}
           />
           <div className='mb-5'>
           <label  htmlFor='propietario' className='block text-white uppercase font-bold'>nombre del  propietario</label>
@@ -36,18 +49,26 @@ const Formulario=()=> {
         </div>
         <div className='mb-5'>
           <label  htmlFor='alta' className='block text-white uppercase font-bold'>fecha</label>
+          value={fecha}
+          onChange={(e)=>setFecha(e.target.valuue)
           <input
           type="date"
           id='alta'
           placeholder="ingrese la fecha"
           className=' border-2 w-full p-2 mt placeholder-red-400 rounded-md'
+          value={email}
+          onChange={(e)=>setEmail(e.target.valuue)
           />
         </div>
         <div className='mb-5'>
           <label htmlFor='fecha'>
           </label>
           <textarea
+        id='daño'
+        className=' border-2 w-full p-2 mt placeholder-red-400 rounded-md'
           placeholder='describa el tipo de daño'
+          value={daño}
+          onChange={(e)=>setDaño(e.target.valuue)
           />
         </div>
         <input
