@@ -3,6 +3,7 @@ import Header from "./components/Header"
 import ListadoPacientes from "./components/ListadoPaciente"
 import Formulario from "./components/Formulario"
 
+
 function App(){
   const [clientes, setClientes]=useState([]);  
   
@@ -15,7 +16,12 @@ function App(){
         clientes={clientes}
         setClientes={setClientes}
         />
-        <ListadoPacientes/>
+        <ListadoPacientes
+        
+        clientes={clientes}
+        setClientes={setClientes}
+        />
+    
       </div>
       </div>
   

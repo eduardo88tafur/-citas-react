@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import Error from "./Error";
 
 const Formulario = ({clientes,setClientes}) => {
@@ -9,6 +9,11 @@ const Formulario = ({clientes,setClientes}) => {
   const [fecha, setFecha] = useState("");
   const [dano, setDano] = useState("");
   const [error, setError] = useState(false);
+ const generarId=()=>{
+   const random= Math.random().toString(36).Substr(2);
+   const fecha= Date.now().toString(36)
+   return fecha +random
+ }
 
   const handleSubmit=(e)=>{
     e.preventDefault();
@@ -23,7 +28,8 @@ const Formulario = ({clientes,setClientes}) => {
      propietario,
      email,
      fecha,
-     dano
+     dano,
+     id: generarId()
    }
 
   setClientes([...clientes,objetoCliente]);
@@ -44,13 +50,16 @@ const Formulario = ({clientes,setClientes}) => {
         onSubmit={handleSubmit}
         className="bg-white shadow-md rounded-lg py-10 px-5"
           >
-        {error && <Error><p>todos los campos son obligatorios</p></Error>}
+        {error && <Error>
+          <p>todos los campos son obligatorios</p>
+          <h1>por favor complete </h1>
+          </Error>}
         <div className="mb-5">
           <label
             htmlFor="celular"
             className="block text-black uppercase font-bold"
           >
-            nombre del celular
+            nombre movil
           </label>
           <input
             type="text"
