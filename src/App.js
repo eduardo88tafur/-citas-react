@@ -1,12 +1,12 @@
 import {useState} from "react"
 import Header from "./components/Header"
-import ListadoPacientes from "./components/ListadoPaciente"
+import ListadoPacientes from "./components/ListadoPacientes"
 import Formulario from "./components/Formulario"
 
 
 function App(){
   const [clientes, setClientes]=useState([]);  
-  
+  const [cliente,setCliente]=useState({});
   
     return(
       <div className="container mx-auto mt-20">
@@ -17,15 +17,11 @@ function App(){
         setClientes={setClientes}
         />
         <ListadoPacientes
-        
         clientes={clientes}
-        setClientes={setClientes}
+        setCliente={setCliente}
         />
-    
-      </div>
-      </div>
-  
+        </div>
+        </div>
     )
     } 
-
 export default App

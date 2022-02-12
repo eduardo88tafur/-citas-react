@@ -10,9 +10,9 @@ const Formulario = ({clientes,setClientes}) => {
   const [dano, setDano] = useState("");
   const [error, setError] = useState(false);
  const generarId=()=>{
-   const random= Math.random().toString(36).Substr(2);
+   const random= Math.random().toString(36).substring(2);
    const fecha= Date.now().toString(36)
-   return fecha +random
+   return random+fecha
  }
 
   const handleSubmit=(e)=>{

@@ -2,7 +2,8 @@ import React from "react";
 import Cliente from "./Cliente";
 
 
-const ListadoPaciente = ({clientes,setClientes}) => {
+const ListadoPacientes = ({clientes,setCliente}) => {
+  console.log(clientes);
 
 
   return (
@@ -14,9 +15,10 @@ const ListadoPaciente = ({clientes,setClientes}) => {
       </p>
  {clientes.map((cliente)=>{
       return (
-        
         <Cliente
+        key={cliente.id}
         cliente={cliente}
+        setCliente={setCliente}
         />
      )
     })}
@@ -24,4 +26,4 @@ const ListadoPaciente = ({clientes,setClientes}) => {
 </div>
 )
 }
-export default ListadoPaciente;
+export default ListadoPacientes;
