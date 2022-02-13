@@ -1,8 +1,18 @@
-import { useState} from "react";
+import { useState, useEffect} from "react";
 import Error from "./Error";
 
-const Formulario = ({clientes,setClientes}) => {
-   
+const Formulario = ({clientes,setClientes,cliente}) => {
+  useEffect(()=>{
+    if(Object.keys(cliente).length>0){
+      setNombre(cliente.nombre)
+  setPropietario(cliente.propietario)
+  setEmail(cliente.email)
+  setFecha(cliente.fecha)
+  setDano(cliente.dano)
+    }
+    
+    
+  },[cliente])
   const [nombre, setNombre] = useState("");
   const [propietario, setPropietario] = useState("");
   const [email, setEmail] = useState("");

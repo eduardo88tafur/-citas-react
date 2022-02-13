@@ -7,7 +7,9 @@ import Formulario from "./components/Formulario"
 function App(){
   const [clientes, setClientes]=useState([]);  
   const [cliente,setCliente]=useState({});
-  
+  const eliminarCliente=(id)=>{
+console.log('eliminando cliente',id);
+  }
     return(
       <div className="container mx-auto mt-20">
         <Header/>
@@ -15,10 +17,12 @@ function App(){
         <Formulario
         clientes={clientes}
         setClientes={setClientes}
+        cliente={cliente}
         />
         <ListadoPacientes
         clientes={clientes}
         setCliente={setCliente}
+        eliminarCliente={eliminarCliente}
         />
         </div>
         </div>

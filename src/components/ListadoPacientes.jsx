@@ -1,11 +1,14 @@
-import React from "react";
+import {useEffect} from "react";
 import Cliente from "./Cliente";
 
+const ListadoPacientes = ({clientes,setCliente,eliminarCliente}) => {
 
-const ListadoPacientes = ({clientes,setCliente}) => {
-  console.log(clientes);
-
-
+  useEffect((cliente)=>{
+    if(clientes.length>0){
+      console.log('nuevo cliente');
+    }  
+  },[clientes])
+  
   return (
     <div className=" md:w-1/2 lg:w-3/5 md:h-screen overflow-y-scroll">
       <h2 className="font-black text-3xl text-center">listado de clientes</h2>
@@ -19,6 +22,7 @@ const ListadoPacientes = ({clientes,setCliente}) => {
         key={cliente.id}
         cliente={cliente}
         setCliente={setCliente}
+        eliminarCliente={eliminarCliente}
         />
      )
     })}
