@@ -1,55 +1,53 @@
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Error from "./Error";
 
-const Formulario = ({clientes,setClientes,cliente}) => {
-  useEffect(()=>{
-    if(Object.keys(cliente).length>0){
-      setNombre(cliente.nombre)
-  setPropietario(cliente.propietario)
-  setEmail(cliente.email)
-  setFecha(cliente.fecha)
-  setDano(cliente.dano)
+const Formulario = ({ clientes, setClientes, cliente }) => {
+  useEffect(() => {
+    if (Object.keys(cliente).length > 0) {
+      setNombre(cliente.nombre);
+      setPropietario(cliente.propietario);
+      setEmail(cliente.email);
+      setFecha(cliente.fecha);
+      setDano(cliente.dano);
     }
-    
-    
-  },[cliente])
+  }, [cliente]);
+
   const [nombre, setNombre] = useState("");
   const [propietario, setPropietario] = useState("");
   const [email, setEmail] = useState("");
   const [fecha, setFecha] = useState("");
   const [dano, setDano] = useState("");
   const [error, setError] = useState(false);
- const generarId=()=>{
-   const random= Math.random().toString(36).substring(2);
-   const fecha= Date.now().toString(36)
-   return random+fecha
- }
+  const generarId = () => {
+    const random = Math.random().toString(36).substring(2);
+    const fecha = Date.now().toString(36);
+    return random + fecha;
+  };
 
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-  if ([nombre, propietario, email, fecha, dano].includes("")) {
-    console.log("tienes un campo vacio");
-    setError(true);
-    return;
+    if ([nombre, propietario, email, fecha, dano].includes("")) {
+      console.log("tienes un campo vacio");
+      setError(true);
+      return;
     }
     setError(false);
-    const objetoCliente={
+    const objetoCliente = {
       nombre,
-     propietario,
-     email,
-     fecha,
-     dano,
-     id: generarId()
-   }
+      propietario,
+      email,
+      fecha,
+      dano,
+      id: generarId(),
+    };
 
-  setClientes([...clientes,objetoCliente]);
-  setNombre("")
-  setPropietario("")
-  setEmail("")
-  setFecha("")
-  setDano("")
-}
-
+    setClientes([...clientes, objetoCliente]);
+    setNombre("");
+    setPropietario("");
+    setEmail("");
+    setFecha("");
+    setDano("");
+  };
 
   return (
     <div className="md:w-1/2 lg:w-2/5">
@@ -59,11 +57,13 @@ const Formulario = ({clientes,setClientes,cliente}) => {
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-md rounded-lg py-10 px-5"
-          >
-        {error && <Error>
-          <p>todos los campos son obligatorios</p>
-          <h1>por favor complete </h1>
-          </Error>}
+      >
+        {error && (
+          <Error>
+            <p>todos los campos son obligatorios</p>
+            <h1>por favor complete </h1>
+          </Error>
+        )}
         <div className="mb-5">
           <label
             htmlFor="celular"
@@ -100,7 +100,7 @@ const Formulario = ({clientes,setClientes,cliente}) => {
               htmlFor="email"
               className="block text-black uppercase font-bold"
             >
-               email
+              email
             </label>
             <input
               type="email"
@@ -126,9 +126,13 @@ const Formulario = ({clientes,setClientes,cliente}) => {
               value={fecha}
               onChange={(e) => setFecha(e.target.value)}
             />
-            <div
-            className="mb-5">
-              <label htmlFor="tipo de daño" className="block text-gray-700 uppercase font-bold  mt-10 ">tipo de daño</label>
+            <div className="mb-5">
+              <label
+                htmlFor="tipo de daño"
+                className="block text-gray-700 uppercase font-bold  mt-10 "
+              >
+                tipo de daño
+              </label>
             </div>
             <textarea
               id="daño"
